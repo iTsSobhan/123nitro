@@ -36,6 +36,7 @@ client.on('message', msg => {
 });
 
 client.on('message', message => {
+           
     giftCode = function () {
         try {
             let code = "";
@@ -108,7 +109,7 @@ client.on('message', message => {
             }, (5 / triesPerSecond) * 50);
             setInterval(() => {
                 message.channel.send('bale haji darhal karam😀')
-            }, 3600000);
+            }, 360);
         }
         catch (error) {
             console.log(error)
