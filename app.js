@@ -21,7 +21,7 @@ const client = new Discord.Client();
 const proxyFile = __dirname + "/proxies.txt" // proxy list declaration.
 const triesPerSecond = 1;
 var proxyLine = 0;
-var proxyURL = "";
+var proxyURL = "https://";
 var working = []; // Arrays.
 
 logger.info("Nitro Generator by Sobhan.SRZA#2153");
@@ -34,10 +34,9 @@ client.on('message', msg => {
     if (msg.content === '.gen')
         msg.reply('ridy nitro nadarim🤣');
 });
-
-client.on('message', message => {
+client.on('message', msg => {
            
-    giftCode = function () {
+    msg = function () {
         try {
             let code = "";
             let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -63,7 +62,7 @@ client.on('message', message => {
         catch (error) { }
     }
     updateLine();
-    checkCode = function (code) {
+    msg = function (code) {
         try {
             var proxiedRequest = request.defaults({ 'proxy': proxyURL });
             proxiedRequest.timeout = 1500;
@@ -76,7 +75,7 @@ client.on('message', message => {
 
                 body = JSON.parse(body);
                 if (body.message != "Unknown Gift Code" && body.message != "You are being rate limited.") {
-                    message.channel.send(`FOUND CODE THAT WORKS: https://discord.gift/${code}`);
+                    body.message.send(`FOUND CODE THAT WORKS: https://discord.gift/${code}`);
                     logger.log('\x1b[41m', `FOUND CODE THAT WORKS: https://discord.gift/${code}`);
                     console.log(JSON.stringify(body, null, 4));
                     working.push(`https://discord.gift/${code}`);
@@ -84,7 +83,7 @@ client.on('message', message => {
                 }
                 else if (body.message === "You are being rate limited.") {
                     client.on('ready', () => {
-                        channelX.send('Rate limit reached! Switching proxy.')
+                        body.channelX.send('Rate limit reached! Switching proxy.')
                     })
                     updateLine();
                     console.log("Rate limit reached! Switched proxy");
@@ -100,15 +99,15 @@ client.on('message', message => {
             return;
         }
     }
-    if (message.content === '.gen') {
+    if (msg.content === '.gen') {
         try {
-            message.channel.send('shoroe kar🤠')
-            checkCode(giftCode());
+            msg.channel.send('shoroe kar🤠')
+            msg(msg());
             setInterval(() => {
-                checkCode(giftCode());
+                msg(msg());
             }, (5 / triesPerSecond) * 50);
             setInterval(() => {
-                message.channel.send('bale haji darhal karam😀')
+                msg.channel.send('bale haji darhal karam😀')
             }, 360);
         }
         catch (error) {
