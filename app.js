@@ -18,23 +18,23 @@ function nitroCodeGen() {
    }
    return result;
 }
+    const link = "https://discord.gift/";
+    const channelIds = ['Channel-id-1', 'Channel-id-2', 'Channel-id-3'];
 
 client.on("ready", () => {
-  client.user.setStatus("dnd")
- console.log("ready!")
-
-});
-client.on("ready", () => {
-
    client.user.setActivity(`${prefix}gen`, { type: "WATCHING"})
+   client.user.setStatus("dnd")
+   console.log("bote kharkosat run shod seyed")
 });
 
 client.on('message', msg => {
-  if (msg.content === `${prefix}gen`) {
-    msg.DMchannel.send("https://discord.gift/" + nitroCodeGen());  
-             
-    msg.reply('nitro overloaded pls use the cmd again!')
+
+  if (channelIds.includes(message.channel.id)) {
+
+  if (msg.content === `${prefix}gen`) return msg.DMchannel.send(link + nitroCodeGen()).then msg.reply('nitro overloaded pls use the cmd again!')
     
+              else return message.channel.send('shotor morgh farangi az in command faghat to channel makhsosesh mishe estefade kard');
+        
 
   }
 });
