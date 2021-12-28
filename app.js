@@ -31,22 +31,7 @@ client.on("ready", () => {
 
 client.on('message', msg => {
   if (msg.content === `${prefix}gen`) {
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());  
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
-    msg.channel.send("https://discord.gift/" + nitroCodeGen());
+    msg.DMchannel.send("https://discord.gift/" + nitroCodeGen());  
              
     msg.reply('nitro overloaded pls use the cmd again!')
     
